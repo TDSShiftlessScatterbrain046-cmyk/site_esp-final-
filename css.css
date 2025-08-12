@@ -79,7 +79,7 @@
     main h1 {
       margin-top: 10;
       font-size: 32px;
-      border-bottom: 2px solid #a2a9b1;
+      border-bottom: 2px solid var(--textBlack);
       padding-bottom: 20px;
       margin-bottom: 20px;
     }
