@@ -18,7 +18,7 @@
       margin: 0;
       font-family: Georgia, serif;
       background-color: #19755e;
-      color: #202022;
+      color: var(--textBlack);
     }
 
     main {
