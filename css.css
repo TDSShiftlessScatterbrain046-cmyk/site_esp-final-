@@ -112,7 +112,7 @@ div.CarouselBase{
     height: 250px;
 }
 
-article#carousel {
+article.carousel {
     grid-row: 1 / 2;
     grid-column: 1 / 8;
     width: 100vw;
@@ -123,6 +123,8 @@ article#carousel {
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 600px;
+     --items: 5;
+    --middle: 3;
     --position: 1;
     pointer-events: none;
 }
