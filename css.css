@@ -93,7 +93,6 @@ div.CarouselBase{
 }
 .item img {
     text-align: center;
-    padding: 20px;
     border: 3px solid black;
     border-radius: 20px;
     position: absolute;
