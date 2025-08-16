@@ -112,7 +112,7 @@ div.CarouselBase{
     height: 250px;
 }
 
-div.carousel {
+main#carousel {
     grid-row: 1 / 2;
     grid-column: 1 / 8;
     width: 100vw;
