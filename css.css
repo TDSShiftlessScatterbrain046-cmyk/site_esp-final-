@@ -93,6 +93,14 @@
     }
       * {box-sizing:border-box}
 .item img {
+    text-align: center;
+    padding: 20px;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-color: #fff;
+    position: absolute;
+    width: 300px;
+    height: 250px;
 }
 
 main#carousel {
@@ -113,14 +121,7 @@ main#carousel {
 }
 
 div.item {
-    text-align: center;
-    padding: 20px;
-    border: 3px solid black;
-    border-radius: 20px;
-    background-color: #fff;
-    position: absolute;
-    width: 300px;
-    height: 250px;
+
     background-color: white;
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
