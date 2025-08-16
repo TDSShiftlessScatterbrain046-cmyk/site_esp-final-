@@ -104,7 +104,7 @@ main#carousel {
     grid-column: 1 / 8;
     width: 100vw;
     height: 300px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
