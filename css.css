@@ -21,7 +21,7 @@
       color: var(--textBlack);
     }
 
-    main {
+    main#base {
       /*margin: 100px auto 0; /* Empurra main pra baixo do nav */
       max-width: 900px;
       background-color: var(--backWhite);
@@ -66,7 +66,7 @@
       margin-bottom: 20px;
       padding-top: 20px;
     }
-    main {
+    main#base {
       max-width: 900px;
       margin: 0 auto;
       background-color: var(--backWhite);
