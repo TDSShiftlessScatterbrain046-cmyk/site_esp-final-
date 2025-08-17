@@ -6,6 +6,8 @@
       --secondaryYellow: #b5e3c9;
       --accentPurple: #A78DED;
       --textBlack: #140025;
+      --imgWidth: 300px;
+      --imgHeight: 250px;
     }
     * {
       box-sizing: border-box;
@@ -96,8 +98,8 @@ div#CarouselBase{
     border: 3px solid black;
     border-radius: 20px;
     position: absolute;
-    width: 300px;
-    height: 250px;
+    width: var(--imgWidth);
+    height: var(--imgHeight);
 }
 
 main#carousel {
@@ -122,7 +124,7 @@ div.item {
     --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.25s ease-in-out;
     transform: rotateY(calc(-10deg * var(--r)))
-    translateX(calc(-300px * var(--r)));
+    translateX(calc(-1 * (var(--imgWidth)) * var(--r)));
     z-index: calc((var(--position) - var(--abs)));
 }
 
