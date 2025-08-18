@@ -116,6 +116,7 @@ div.item {
     background-color: white;
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
+    --otherside: calc(clamp(0,calc(var(--r)-3),1)-1);
     transition: all 0.25s ease-in-out;
     transform: rotateY(calc(-10deg * var(--r)))
     translateX(calc(-1 * (var(--imgWidth)) * var(--r)));
