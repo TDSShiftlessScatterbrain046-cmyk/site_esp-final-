@@ -112,14 +112,14 @@ main#carousel {
 }
 
 div.item {
-
     background-color: white;
     --r: calc(var(--position) - var(--offset));
-    --abs: max(calc(var(--r) * -1), var(--r));
     --otherside: calc(clamp(0,calc(var(--r)-3),1)-1);
+    --TranslateX: var(--r);
+    --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.25s ease-in-out;
     transform: rotateY(calc(-10deg * var(--r)))
-    translateX(calc(-1 * (var(--imgWidth)) * var(--r)));
+    translateX(calc(-1 * (var(--imgWidth)) * var(--TranslateX)));
     z-index: calc((var(--position) - var(--abs)));
 }
 
