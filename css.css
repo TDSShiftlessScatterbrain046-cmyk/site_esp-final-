@@ -6,8 +6,9 @@
       --secondaryYellow: #b5e3c9;
       --accentPurple: #A78DED;
       --textBlack: #140025;
-      --imgWidth: 300px;
+      --imgWidth: 380px;
       --imgHeight: 250px;
+      --imgPadding: 20;
     }
     * {
       box-sizing: border-box;
@@ -108,18 +109,22 @@ main#carousel {
     transform-style: preserve-3d;
     perspective: 600px;
     --position: 1;
-    counter-reset:test;
+    --images: 5;
+    counter-reset: test;
 }
 
 div.item {
     background-color: white;
     --r: calc(var(--position) - var(--offset));
-    --otherside: calc(clamp(0,calc(var(--r)-3),1)-1);
-    --TranslateX: var(--r);
+    --otherside: calc(clamp(0, calc(var(--r) - 3), 1) + clamp(-1, calc(var(--r) + 3), 0));
+    --CurrentPos: calc(var(--r) - (var(--images)*var(--otherside)) );
     --abs: max(calc(var(--r) * -1), var(--r));
+
+    --rotateY: calc(-10deg * var(--CurrentPos));
+    --translateX: calc(-1 * (var(--imgWidth)) * var(--CurrentPos) + 206px);
     transition: all 0.25s ease-in-out;
-    transform: rotateY(calc(-10deg * var(--r)))
-    translateX(calc(-1 * (var(--imgWidth)) * var(--TranslateX)));
+    transform:  rotateY(var(--rotateY))
+                translateX(var(--translateX));
     z-index: calc((var(--position) - var(--abs)));
 }
 
@@ -178,4 +183,4 @@ input:nth-of-type(5) {
 }
 input:nth-of-type(5):checked ~ main#carousel {
     --position: 5;
-}<link rel="stylesheet" href="css.css">
+}
