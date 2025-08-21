@@ -8,7 +8,8 @@
       --textBlack: #140025;
       --imgWidth: 380px;
       --imgHeight: 250px;
-      --imgPadding: 20;
+      --imgPadding: 0px;
+      --imgSizingFORSAKE: calc(var(--imgWidth) + var(--imgPadding));
     }
     * {
       box-sizing: border-box;
@@ -97,10 +98,10 @@ div#CarouselBase{
     border-radius: 20px;
     position: absolute;
     height: var(--imgHeight);
-    counter-increment:test;
 }
 
 main#carousel {
+    display: flex;
     grid-row: 1 / 1;
     grid-column: 1 / 8;
     width: 100%;
@@ -110,24 +111,31 @@ main#carousel {
     perspective: 600px;
     --position: 1;
     --images: 5;
-    counter-reset: test;
 }
 
 div.item {
+    transform-origin: 50% 50%;
     background-color: white;
     --r: calc(var(--position) - var(--offset));
     --otherside: calc(clamp(0, calc(var(--r) - 3), 1) + clamp(-1, calc(var(--r) + 3), 0));
     --CurrentPos: calc(var(--r) - (var(--images)*var(--otherside)) );
-    --abs: max(calc(var(--r) * -1), var(--r));
-
-    --rotateY: calc(-10deg * var(--CurrentPos));
-    --translateX: calc(-1 * (var(--imgWidth)) * var(--CurrentPos) + 206px);
+    --abs: max(calc(var(--CurrentPos) * -1), var(--CurrentPos));
+    --positiveChecker: calc(((var(--CurrentPos) + var(--abs))) / 2 );
+    
+    --scaleXYZ: calc((var(--abs)) * -0.2 + 1);
+    --positiveDifference: calc(var(--positiveChecker) * var(--imgSizingFORSAKE) * (1 - var(--scaleXYZ)));
+    --rotateY: calc(-10deg * var(--CurrentPos) );
+    --translateX: calc( -1 * (var(--imgSizingFORSAKE)) * var(--CurrentPos) + 206px + var(--positiveDifference));
     transition: all 0.25s ease-in-out;
-    transform:  rotateY(var(--rotateY))
-                translateX(var(--translateX));
-    z-index: calc((var(--position) - var(--abs)));
+    transform:  rotateY(calc(var(--rotateY) * 0))
+                translateX(calc(var(--translateX) * 1)) 
+                scale(calc(var(--scaleXYZ) * 1 + 0));
+    z-index: calc((var(--position) - var(--abs))); 
+/*    counter-reset: test var(--CurrentPos);*/
 }
-
+/*
+.item p::before{
+}*/
 div.item:nth-of-type(1) {
     --offset: 1;
 }
