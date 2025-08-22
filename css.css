@@ -10,6 +10,7 @@
       --imgHeight: 250px;
       --imgPadding: 0px;
       --imgSizingFORSAKE: calc(var(--imgWidth) + var(--imgPadding));
+      --nextNprevSize: 50px;
     }
     * {
       box-sizing: border-box;
@@ -88,7 +89,7 @@
 div#CarouselBase{
     margin: 0 auto;
     display: grid;
-    grid-template-rows: 250px auto;
+    grid-template-rows: 250px auto 0px;
     grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
     font-family: 'Poppins', sans-serif;
 }
@@ -102,7 +103,7 @@ div#CarouselBase{
 
 main#carousel {
     display: flex;
-    grid-row: 1 / 1;
+    grid-row: 1 / 2;
     grid-column: 1 / 8;
     width: 100%;
     height: 100%;
@@ -111,6 +112,22 @@ main#carousel {
     perspective: 600px;
     --position: 1;
     --images: 5;
+}
+.prev, .next{
+  transform-origin: 50% 50%;
+  height: var(--nextNprevSize);
+  width: var(--nextNprevSize);
+  overflow: visible;
+  grid-row: 3 / 4;
+  grid-column: 4 / 5;
+  border-radius: 50%;
+  background-color: var(--secondaryYellow);  
+}
+.next{
+  transform: translate(calc((var(--imgWidth))/2), calc(var(--imgHeight)/-2 - var(--nextNprevSize)));
+}
+.prev{
+  transform: translate(calc((var(--imgWidth))/-2 - 40px), calc(var(--imgHeight)/-2 - var(--nextNprevSize)));
 }
 
 div.item {
@@ -152,43 +169,43 @@ div.item:nth-of-type(5) {
     --offset: 5;
 }
 
-input:nth-of-type(1) {
+input.SelectorInputo:nth-of-type(1) {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
 
-input:nth-of-type(1):checked ~ main#carousel {
+input.SelectorInputo:nth-of-type(1):checked ~ main#carousel {
     --position: 1;
 }
 
-input:nth-of-type(2) {
+input.SelectorInputo:nth-of-type(2) {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
 }
-input:nth-of-type(2):checked ~ main#carousel {
+input.SelectorInputo:nth-of-type(2):checked ~ main#carousel {
     --position: 2;
 }
 
-input:nth-of-type(3) {
+input.SelectorInputo:nth-of-type(3) {
     grid-column: 4 /5;
     grid-row: 2 / 3;
 }
-input:nth-of-type(3):checked ~ main#carousel {
+input.SelectorInputo:nth-of-type(3):checked ~ main#carousel {
     --position: 3;
 }
 
-input:nth-of-type(4) {
+input.SelectorInputo:nth-of-type(4) {
     grid-column: 5 / 6;
     grid-row: 2 / 3;
 }
-input:nth-of-type(4):checked ~ main#carousel {
+input.SelectorInputo:nth-of-type(4):checked ~ main#carousel {
     --position: 4;
 }
 
-input:nth-of-type(5) {
+input.SelectorInputo:nth-of-type(5) {
     grid-column: 6 / 7;
     grid-row: 2 / 3;
 }
-input:nth-of-type(5):checked ~ main#carousel {
+input.SelectorInputo:nth-of-type(5):checked ~ main#carousel {
     --position: 5;
 }
