@@ -31,12 +31,29 @@
      <p>México es un país lleno de contrastes, donde las antiguas civilizaciones mesoamericanas se entrelazan con la modernidad de sus grandes ciudades. Desde los imponentes templos mayas y aztecas hasta sus coloridas tradiciones populares, México ofrece una riqueza cultural inigualable que ha fascinado al mundo durante siglos. Su historia milenaria, marcada por la grandeza de sus pueblos originarios y la influencia del periodo colonial, ha dado forma a una nación diversa, vibrante y orgullosa de sus raíces.</p>
      <p>Además de su patrimonio cultural, México destaca por su geografía variada, que va desde playas paradisíacas en el Caribe hasta desiertos imponentes en el norte y selvas exuberantes en el sur. Su gastronomía, considerada Patrimonio de la Humanidad por la UNESCO, es solo una muestra de la creatividad y el alma de su gente. Con cada rincón que se explora, México invita al viajero a descubrir historias, sabores y paisajes que sorprenden y enamoran.</p>
      <div style="text-align: center;" id="CarouselBase">
-       <input type="radio" name="position" />
-          <input type="radio" name="position" />
-          <input type="radio" name="position" checked/>
-          <input type="radio" name="position" />
-          <input type="radio" name="position" /> 
-       <main id="carousel" style="display: inline-flex">
+        <script>
+          function plusSlides(n) {
+            const unitOption = parseFloat(document.querySelector('input[class="SelectorInputo"]:checked').value);
+            var elfonashelf = (unitOption+n)%5;
+            if (elfonashelf == 0){
+              elfonashelf = 5
+            }
+            console.log(elfonashelf);
+            showSlide(elfonashelf);
+          };
+          function showSlide(n) {
+            const parentDOM = document.getElementById("CarouselBase");
+            const testElements = parentDOM.getElementsByClassName('SelectorInputo')[n-1].checked = true;
+            
+          }
+        </script>
+        <input type="radio" class="SelectorInputo" value=1 name="position" />
+        <input type="radio" class="SelectorInputo" value=2 name="position" />
+        <input type="radio" class="SelectorInputo" value=3 name="position" checked/>
+        <input type="radio" class="SelectorInputo" value=4 name="position" />
+        <input type="radio" class="SelectorInputo" value=5 name="position" /> 
+          
+       <main id="carousel">
           
           <div class="item">
               <img src="mexico-map-vector-design-2ad2c9.webp" width="380">
@@ -45,18 +62,18 @@
                 <img src="dia-de-los-muertos.jpeg" width="380">
           </div>
           <div class="item">
-                <img src="as-duas-fridas.jpg" width="380">
+              <img src="as-duas-fridas.jpg" width="380">
           </div>
           <div class="item">
             <img src="images/4.jpg">
           </div>
           <div class="item">
             <img src="images/5.jpg">
-          </div>
-  
-        </article>
-        
-       </main>
+          </div>        
+      </main>
+        <input type="button" class="prev" onclick="plusSlides(-1)">
+        <input type="button" class="next" onclick="plusSlides(1)">
+
     </section>
 
     <section id="Aspectos culturales">
