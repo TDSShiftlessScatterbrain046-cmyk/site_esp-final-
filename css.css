@@ -54,7 +54,7 @@
       display: inline;
     }
     nav a:hover {
-      background-color: var(--secundaryYellow);
+      background-color: var(--secondaryYellow);
       text-decoration: underline;
       margin-bottom: 20px;
       padding-top: 20px;
